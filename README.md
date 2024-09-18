@@ -29,6 +29,15 @@ pip install -r requirements.txt
 ```
 Run the script
 ```bash
-python cv_compilation.py --names 'Letourneau' 'Létourneau' 'Guillon' # names to check for authorship
+python cv_compilation.py --names 'Letourneau' 'Létourneau' 'Guillon' 
+# names to check for authorship
 ```
+By default the code expects the following structure and will check for csv file in the `1_data` folder and save the output in the `3_output` folder.
 
+```aiignore
+├── 1_data
+│   ├── citations-2.csv
+│   └── citations_core_do_not_erase.csv
+├── 3_output
+
+```
