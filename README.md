@@ -39,9 +39,7 @@ By default the code expects the following structure and will check for csv file 
 │   ├── citations-2.csv
 │   └── citations_core_do_not_erase.csv
 ├── 3_output
-
-data directory can be specified with the --data_dir flag
-output directory can be specified with the --output_dir flag
-output directory can be specified with the --output_dir flag
-
 ```
+data directory can be specified with the `--data_dir` flag
+output directory can be specified with the `--output_dir` flag
+
