@@ -3,6 +3,19 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+#DS_Store
+.DS_Store
+
+#idea
+.idea/
+#vscode
+.vscode/
+
+/1_data
+*.csv
+*.xlsx
+
+
 # C extensions
 *.so
 
