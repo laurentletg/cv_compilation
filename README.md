@@ -8,6 +8,8 @@ Currently this only compiles the number of publications using the csv from googl
 1. Go to your google scholar
 2. Import the csv with all your publications
 3. Remove all items that are not publications (e.g. conference proceedings)
+4. Check the .csv named citations_core_do_not_erase  - these are the citations that are already cleaned. Makes sure there is no overlap and remove citations from the new csv.
+> Note the code checks for duplicate anyway but it is better to remove them before running the code
 4. save the csv in the `1_data` folder
 This will be concatenated with the 'citations_core_do_not_erase '
 5. A message will ask to double check if all entries are ok in the file citations_core_do_not_erase.csv that will be overwritten
@@ -34,12 +36,10 @@ python cv_compilation.py --names 'Letourneau' 'Létourneau' 'Guillon'
 ```
 By default the code expects the following structure and will check for csv file in the `1_data` folder and save the output in the `3_output` folder.
 
-```aiignore
+```bash
 ├── 1_data
 │   ├── citations-2.csv
 │   └── citations_core_do_not_erase.csv
 ├── 3_output
 ```
-data directory can be specified with the `--data_dir` flag
-output directory can be specified with the `--output_dir` flag
-
+the `1_data` directory is where csvs should be saved

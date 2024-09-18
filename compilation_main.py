@@ -34,7 +34,7 @@ def get_parser():
 
 def write_csv_for_each_year_cutoffs(output_dir, df_list, years):
     for i, j in zip(df_list, years):
-        i.to_csv(os.path.join(output_dir, 'Publications since {}.csv'.format(j)))
+        i.to_csv(os.path.join(output_dir, 'Publications since {}.csv'.format(j)), encoding="utf-8")
 
 
 def get_df_list_per_year(df_core, years):
@@ -117,7 +117,7 @@ def get_authorship_numbers(years,author_list, output_dir, names, logger):
         df_summary = pd.DataFrame({'Catégorie': ['Premier auteur', 'Auteur sénior',  'Co-auteur', 'Total'],
                                    'Nombre depuis {}'.format(a): lst_num_papers})
         df_list_authors.append(df_summary)
-        df_summary.to_csv(os.path.join(output_dir, 'Nombre de publications depuis {}.csv'.format(a)))
+        df_summary.to_csv(os.path.join(output_dir, 'Nombre de publications depuis {}.csv'.format(a)),encoding="utf-8")
 
     return df_list_authors
 
@@ -126,7 +126,7 @@ def merge_authorship(df_list_authors, output_dir, logger):
     df_merged = reduce(lambda left, right: pd.merge(left, right, on=['Catégorie'],
                                                     how='outer'), df_list_authors)
 
-    df_merged.to_csv(os.path.join(output_dir, 'summary_of_publications.csv'))
+    df_merged.to_csv(os.path.join(output_dir, 'summary_of_publications.csv'), encoding="utf-8")
     df_merged.to_excel(os.path.join(output_dir, 'summary_of_publications.xlsx'))
 
     logger.info(f'Wrote csv and excel files here: {output_dir}')
@@ -177,7 +177,7 @@ def main():
     logger.info(f'Checking the number of row after removing duplicates {df_core.shape[0]}')
 
 
-    df_core.to_csv(os.path.join(args.data_dir, 'citations_core_do_not_erase.csv'), index=False)
+    df_core.to_csv(os.path.join(args.data_dir, 'citations_core_do_not_erase.csv'), index=False, encoding="utf-8")
     check = input('Check the data before proceeding,\n'
                   'MAKE SURE ALL LINES ARE PUBLICATIONS,\n'
                   '***The current script does not consider co-senior authorship***,\n'
